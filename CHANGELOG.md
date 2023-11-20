@@ -1,5 +1,9 @@
 # V1.0 Permutations
 
+## V1.0.5
+* The vanilla vendor script clears inventory in OnLoad this is not reliably called in a ship hab. I've cloned the script and can clearing OnCellAttach/Detach which seem to more reliably get called. Now that being said none of the events ever get called if you just exit/save/load without leaving the ship. Will need the custom script so I can call story manager to get the treasure maps anyway so long term this would have been needed. 
+* Ok now for the bad part you need to remove and readd your terminal so my script takes over just use the build interface to do it. 
+
 ## V1.0.4
 * Use global value LegalPawnShop (XX000808) to control selling/stocking of contraband items. Use "FindForm LegalPawnShop" to get the correct form ID for your load order, then use "set XX000808 to 1" fixing XX to your index value, finally use "help LegalPawnShop" to verify it's setting. Use the outpost modify mode to remove the old terminal first or you will not be able to deploy a new one. They are mutually exclusive. 
 

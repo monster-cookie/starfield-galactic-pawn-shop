@@ -1,5 +1,8 @@
 # V1.0 Permutations
 
+## V1.0.6
+* Fixed the cache treasure maps not spawning..... Stupid cut and paste errors. 
+
 ## V1.0.5
 * The vanilla vendor script clears inventory in OnLoad this is not reliably called in a ship hab. I've cloned the script and can clearing OnCellAttach/Detach which seem to more reliably get called. Now that being said none of the events ever get called if you just exit/save/load without leaving the ship. Will need the custom script so I can call story manager to get the treasure maps anyway so long term this would have been needed. 
 * Ok now for the bad part you need to remove and readd your terminal so my script takes over just use the build interface to do it. 

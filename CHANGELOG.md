@@ -1,7 +1,7 @@
 # V1.0 Permutations
 
 ## V1.0.7
-* Fixed some spelling error found working on Galactic Pet Shop
+* Fixed some spelling errors found working on Galactic Pet Shop
 
 ## V1.0.6
 * Fixed the cache treasure maps not spawning..... Stupid cut and paste errors. 

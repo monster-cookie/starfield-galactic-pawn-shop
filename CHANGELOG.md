@@ -1,5 +1,10 @@
 # V1.0 Permutations
 
+## V1.0.8
+* Now requires Venpi Core utility library (https://www.nexusmods.com/starfield/mods/7097)
+* The legit terminal was missing most of its script args /facepalm. It should work much better now lol. 
+* Removed the duplicated global vars and pex scripts that are now the core mod. 
+
 ## V1.0.7
 * Fixed some spelling errors found working on Galactic Pet Shop
 

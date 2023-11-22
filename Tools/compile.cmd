@@ -27,15 +27,7 @@ mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-B
 mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\textures\setdressing\terminals\splashscreens\"
 
 REM Compile and deploy Scripts to Dist-BA2-Main folder
-Caprica-Experimental.exe --game starfield --flags "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Tools\Starfield_Papyrus_Flags.flg" --import "C:\Repositories\Public\Starfield-Script-Source;C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus" --output "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Scripts" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus\VPI_Helper.psc" && (
-  @echo "VPI_Helper.psc successfully compiled"
-  (call )
-) || (
-  @echo "Error:  VPI_Helper.psc failed to compile <======================================="
-  exit /b 1
-)
-
-Caprica-Experimental.exe --game starfield --flags "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Tools\Starfield_Papyrus_Flags.flg" --import "C:\Repositories\Public\Starfield-Script-Source;C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus" --output "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Scripts" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus\VPI_VendorActivatorScript.psc" && (
+Caprica-Experimental.exe --game starfield --flags "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Tools\Starfield_Papyrus_Flags.flg" --import "C:\Repositories\Public\Starfield-Script-Source;C:\Repositories\Public\Starfield Mods\starfield-venpi-core\Source\Papyrus;C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus" --output "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Scripts" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus\VPI_VendorActivatorScript.psc" && (
   @echo "VPI_VendorActivatorScript.psc successfully compiled"
   (call )
 ) || (

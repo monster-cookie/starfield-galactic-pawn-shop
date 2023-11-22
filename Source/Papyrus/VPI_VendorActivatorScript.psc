@@ -5,7 +5,7 @@ ScriptName VPI_VendorActivatorScript Extends ObjectReference
 ;;;
 ;;; Global Variables
 ;;;
-GlobalVariable Property GPSDebugMode Auto Const Mandatory
+GlobalVariable Property Venpi_DebugEnabled Auto Const Mandatory
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -31,11 +31,11 @@ ObjectReference myVendorContainer
 ;;;
 
 Event OnInit()
-  ; VPI_Helper.DebugMessage("VendorActivatorScript", "OnInit", "OnInit Triggered.", 0, GPSDebugMode.GetValueInt())
+  ; VPI_Debug.DebugMessage("VendorActivatorScript", "OnInit", "OnInit Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
 EndEvent
 
 Event OnLoad()
-  VPI_Helper.DebugMessage("VendorActivatorScript", "OnLoad", "OnLoad Triggered.", 0, GPSDebugMode.GetValueInt())
+  VPI_Debug.DebugMessage("VendorActivatorScript", "OnLoad", "OnLoad Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
   If (myVendor == None)
     myVendor = Self.PlaceActorAtMe(Vendor, 4, None, False, True, True, None, True)
     myVendorContainer = Self.PlaceAtMe(VendorContainer as Form, 1, False, True, True, None, None, True)
@@ -43,7 +43,7 @@ Event OnLoad()
   EndIf
 
   If (ClearVendorActorInventoryOnLoad)
-    VPI_Helper.DebugMessage("VendorActivatorScript", "OnLoad", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, GPSDebugMode.GetValueInt())
+    VPI_Debug.DebugMessage("VendorActivatorScript", "OnLoad", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, Venpi_DebugEnabled.GetValueInt())
     myVendor.RemoveAllItems(None, False, False)
   EndIf
 EndEvent
@@ -55,17 +55,17 @@ Event OnActivate(ObjectReference akActionRef)
 EndEvent
 
 ; Event OnCellLoad()
-;   VPI_Helper.DebugMessage("VendorActivatorScript", "OnCellLoad", "OnCellLoad Triggered.", 0, GPSDebugMode.GetValueInt())
+;   VPI_Debug.DebugMessage("VendorActivatorScript", "OnCellLoad", "OnCellLoad Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
 ; EndEvent
 
 ; Event OnCellAttach()
-;   VPI_Helper.DebugMessage("VendorActivatorScript", "OnCellAttach", "OnCellAttach Triggered.", 0, GPSDebugMode.GetValueInt())
+;   VPI_Debug.DebugMessage("VendorActivatorScript", "OnCellAttach", "OnCellAttach Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
 ; EndEvent
 
 Event OnCellDetach()
-  ; VPI_Helper.DebugMessage("VendorActivatorScript", "OnCellDetach", "OnCellDetach Triggered.", 0, GPSDebugMode.GetValueInt())
+  ; VPI_Debug.DebugMessage("VendorActivatorScript", "OnCellDetach", "OnCellDetach Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
   If (ClearVendorActorInventoryOnLoad)
-    VPI_Helper.DebugMessage("VendorActivatorScript", "OnCellDetach", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, GPSDebugMode.GetValueInt())
+    VPI_Debug.DebugMessage("VendorActivatorScript", "OnCellDetach", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, Venpi_DebugEnabled.GetValueInt())
     myVendor.RemoveAllItems(None, False, False)
   EndIf
 EndEvent

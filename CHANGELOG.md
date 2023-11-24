@@ -1,7 +1,7 @@
 # V1.0 Permutations
 
 ## V1.0.9
-* Consuming rare book leveled item list from VenpiCore
+* Consuming rare book leveled item list from VenpiCore, needed update to avoid crash/conflict
 
 ## V1.0.8
 * Now requires Venpi Core utility library (https://www.nexusmods.com/starfield/mods/7097)

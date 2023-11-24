@@ -1,5 +1,8 @@
 # V1.0 Permutations
 
+## V1.0.9
+* Consuming rare book leveled item list from VenpiCore
+
 ## V1.0.8
 * Now requires Venpi Core utility library (https://www.nexusmods.com/starfield/mods/7097)
 * The legit terminal was missing most of its script args /facepalm. It should work much better now lol. 

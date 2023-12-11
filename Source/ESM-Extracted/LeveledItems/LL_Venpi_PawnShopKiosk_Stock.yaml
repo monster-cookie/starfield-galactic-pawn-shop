@@ -1,0 +1,88 @@
+FormKey: 000806:GalacticPawnShop.esm
+EditorID: LL_Venpi_PawnShopKiosk_Stock
+ODTY: 0
+MaxCount: 0
+Flags:
+- UseAll
+Entries:
+- Level: 1
+  Reference: 006E11:Starfield.esm
+  Count: 250
+- Level: 1
+  Reference: 00D582:Starfield.esm
+  Count: 1
+- Level: 1
+  Reference: 00D582:Starfield.esm
+  Count: 2
+  ChanceNone: 0.23529411764705882
+- Level: 1
+  Reference: 131CBE:Starfield.esm
+  Count: 1
+- Level: 1
+  Reference: 150EE5:Starfield.esm
+  Count: 1
+  ChanceNone: 0.29411764705882354
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Unknown1: 0x000000
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      FirstParameter: 000808:GalacticPawnShop.esm
+- Level: 1
+  Reference: 1B5D98:Starfield.esm
+  Count: 3
+- Level: 1
+  Reference: 279263:Starfield.esm
+  Count: 2
+  ChanceNone: 0.0392156862745098
+- Level: 1
+  Reference: 000802:VenpiCore.esm
+  Count: 1
+  ChanceNone: 0.23529411764705882
+- Level: 25
+  Reference: 0C1F58:Starfield.esm
+  Count: 1
+  ChanceNone: 0.0392156862745098
+- Level: 25
+  Reference: 27928E:Starfield.esm
+  Count: 1
+- Level: 50
+  Reference: 0B90A7:Starfield.esm
+  Count: 1
+  ChanceNone: 0.11764705882352941
+- Level: 50
+  Reference: 104605:Starfield.esm
+  Count: 1
+  ChanceNone: 0.1568627450980392
+- Level: 50
+  Reference: 104ACE:Starfield.esm
+  Count: 1
+  ChanceNone: 0.1568627450980392
+- Level: 50
+  Reference: 104AD2:Starfield.esm
+  Count: 1
+  ChanceNone: 0.1568627450980392
+- Level: 50
+  Reference: 27928E:Starfield.esm
+  Count: 2
+  ChanceNone: 0.29411764705882354
+- Level: 75
+  Reference: 0C1F58:Starfield.esm
+  Count: 2
+  ChanceNone: 0.23529411764705882
+- Level: 75
+  Reference: 104605:Starfield.esm
+  Count: 1
+  ChanceNone: 0.23529411764705882
+- Level: 75
+  Reference: 104AD2:Starfield.esm
+  Count: 1
+- Level: 75
+  Reference: 173A32:Starfield.esm
+  Count: 2
+- Level: 75
+  Reference: 173A32:Starfield.esm
+  Count: 3
+  ChanceNone: 0.23529411764705882
+Model:
+  FLLD: 0x01000000

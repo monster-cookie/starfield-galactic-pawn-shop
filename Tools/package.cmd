@@ -9,4 +9,5 @@ REM Clear Dist DIR
 del /q "C:\Users\degre\Downloads\GalacticPawnShop.zip"
 
 REM Archive Dist Dir
-.\7za.exe a -tzip "C:\Users\degre\Downloads\GalacticPawnShop.zip" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist\*.*"
+"D:\Program Files\PexTools\7za.exe" a -tzip "C:\Users\degre\Downloads\GalacticPawnShop.zip" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist\*.*"
+

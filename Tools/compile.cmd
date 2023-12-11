@@ -26,12 +26,13 @@ rmdir /s /q "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\
 mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures"
 mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\textures\setdressing\terminals\splashscreens\"
 
-REM Compile and deploy Scripts to Dist-BA2-Main folder
-Caprica-Experimental.exe --game starfield --flags "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Tools\Starfield_Papyrus_Flags.flg" --import "C:\Repositories\Public\Starfield-Script-Source;C:\Repositories\Public\Starfield Mods\starfield-venpi-core\Source\Papyrus;C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus" --output "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Scripts" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus\VPI_VendorActivatorScript.psc" && (
-  @echo "VPI_VendorActivatorScript.psc successfully compiled"
+@REM Compile and deploy Scripts to Dist-BA2-Main folder
+@echo "Compiling all script in Source/Papyrus to Dist-BA2-Main folder"
+"D:\Program Files\PexTools\Caprica-0.3.0.exe" --game starfield --import "C:\Repositories\Public\Starfield-Script-Source;C:\Repositories\Public\Starfield Mods\starfield-venpi-core\Source\Papyrus;C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus" --output "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Scripts" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Papyrus" -R -q && (
+  @echo "Compile all scripts has successfully compiled"
   (call )
 ) || (
-  @echo "ERROR:  VPI_VendorActivatorScript.psc failed to compile <======================================="
+  @echo "Error:  Compile all scripts has failed to compile <======================================="
   exit /b 1
 )
 
@@ -40,11 +41,15 @@ REM ESM is purely binary so need to pull from starfield dir where xedit has to h
 copy /y "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\ESM"
 copy /y "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"
 
-REM Create and copy the BA2 Textures Archive to Dist folder
- @echo "Deploying textures to Dist-BA2-Textures"
+@REM Use Spriggit to extract record from ESM
+"D:\Program Files\Spriggit\Spriggit.CLI.exe" serialize --InputPath "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" --OutputPath "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\ESM-Extracted" --GameRelease Starfield --PackageName Spriggit.Yaml
+
+@echo "Deploying textures to Dist-BA2-Textures"
 copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Textures\crimsonfleet_splashscreen_color.dds" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\textures\setdressing\terminals\splashscreens"
+
+@REM Create and copy the BA2 Textures Archive to Dist folder
 @echo "Creating the BA2 Textures Archive"
-BSArch64.exe pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures" "GalacticPawnShop - Textures.ba2" -sf1dds -mt && (
+"D:\Program Files\xEdit\BSArch64.exe" pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures" "GalacticPawnShop - Textures.ba2" -sf1dds -mt && (
   @echo "Textures Archive successfully assembled"
   (call )
 ) || (
@@ -52,11 +57,9 @@ BSArch64.exe pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn
   exit /b 1
 )
 
-REM Create and copy the BA2 Main Archive to Dist folder
-REM @echo "Deploying Scripts to Dist-BA2-Main"
-REM copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Textures\crimsonfleet_splashscreen_color.dds" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\textures\setdressing\terminals\splashscreens"
+@REM Create and copy the BA2 Main Archive to Dist folder
 @echo "Creating the BA2 Main Archive"
-BSArch64.exe pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main" "GalacticPawnShop - Main.ba2" -sf1 -mt && (
+"D:\Program Files\xEdit\BSArch64.exe" pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main" "GalacticPawnShop - Main.ba2" -sf1 -mt && (
   @echo "Main Archive successfully assembled"
   (call )
 ) || (
@@ -64,6 +67,7 @@ BSArch64.exe pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn
   exit /b 1
 )
 
+@REM Copying the BA2 Archives to the Dist folder
 @echo "Copying the BA2 Archives to the Dist folder"
 copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\GalacticPawnShop - Textures.ba2" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"
 copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\GalacticPawnShop - Main.ba2" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"

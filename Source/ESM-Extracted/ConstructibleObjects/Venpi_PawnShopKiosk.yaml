@@ -1,0 +1,35 @@
+FormKey: 000801:GalacticPawnShop.esm
+MajorRecordFlagsRaw: 67108864
+EditorID: Venpi_PawnShopKiosk
+StarfieldMajorRecordFlags:
+- 0x4000000
+Description:
+  TargetLanguage: English
+  Value: "Access Venpi's Galactic Pawn Shop and Fence from your ship, outpost, or lodge. "
+WorkbenchKeyword: 0E6A3E:Starfield.esm
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Unknown1: 0x000000
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    FirstParameter: 000808:GalacticPawnShop.esm
+ConstructableComponents:
+- Component: 00000F:Starfield.esm
+  Count: 20000
+- Component: 0057D6:Starfield.esm
+  Count: 4
+- Component: 0057D8:Starfield.esm
+  Count: 2
+- Component: 24576E:Starfield.esm
+  Count: 2
+CreatedObject: 000800:GalacticPawnShop.esm
+MenuSortOrder: 0.8
+PickupSound:
+  Start: bede4929-b668-bf0b-452c-922b90a99bb6
+DropdownSound:
+  Start: e11a4631-24b0-6f2f-127b-c0b82195ab9d
+LearnMethod: DefaultOrConditions
+BuildLimit: 000803:GalacticPawnShop.esm
+Categories:
+- 06D72D:Starfield.esm
+RECF: 0

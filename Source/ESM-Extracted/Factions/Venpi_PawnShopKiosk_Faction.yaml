@@ -1,0 +1,17 @@
+FormKey: 000802:GalacticPawnShop.esm
+EditorID: Venpi_PawnShopKiosk_Faction
+Name:
+  TargetLanguage: English
+  Value: Venpi's Galactic Pawnshop
+Flags:
+- Vendor
+- CanBeOwner
+CrimeValues:
+  Arrest: True
+  AttackOnSight: True
+VendorBuySellList: 022CE5:Starfield.esm
+VendorValues:
+  EndHour: 24
+  BuysStolenItems: True
+  BuySellEverythingNotInList: True
+  BuysNonStolenItems: True

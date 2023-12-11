@@ -1,5 +1,8 @@
 # V1.0 Permutations
 
+## V1.0.10
+* Using Venpi Core 1.0.10 and the new user debug log files.
+
 ## V1.0.9
 * Consuming rare book leveled item list from VenpiCore, needed update to avoid crash/conflict
 

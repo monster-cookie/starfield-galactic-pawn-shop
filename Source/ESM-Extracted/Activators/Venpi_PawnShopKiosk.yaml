@@ -35,7 +35,7 @@ Name:
   TargetLanguage: English
   Value: Pawn Shop Kiosk (Outlaw)
 Model:
-  File: setdressing\terminals\pawn_shop_terminal.nif
+  File: Venworks\PawnShop\pawn_shop_terminal.nif
   FLLD: 0x01000000
 MarkerColor: '#00CC4C33'
 LoopingSound:

@@ -1,5 +1,8 @@
 # V1.0 Permutations
 
+## V1.0.11
+* Now with our own custom terminal instead of messing with the crimson fleet mission board. You may have to remove and readd the terminal to get it working again but shouldn't for a pure model change. 
+
 ## V1.0.10
 * Using Venpi Core 1.0.10 and the new user debug log files.
 

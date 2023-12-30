@@ -10,7 +10,6 @@ cd "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Tools"
 del /s /q "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist\*.*"
 rmdir /s /q "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"
 mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"
-REM mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist\textures\setdressing\terminals\splashscreens\"
 
 @REM Clear Dist-BA2-Main DIR
 @echo "Clearing and scafolding the Dist-BA2-Main dir"
@@ -19,12 +18,13 @@ rmdir /s /q "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\
 mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main"
 mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Scripts\"
 
-@REM Clear Dist-BA2-Textures DIR
-@echo "Clearing and scafolding the Dist-BA2-Textures dir"
-del /s /q "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\*.*"
-rmdir /s /q "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures"
-mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures"
-mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\textures\setdressing\terminals\splashscreens\"
+mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\meshes\Venworks\PawnShop"
+mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\materials\Venworks\PawnShop"
+mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\textures\Venworks\PawnShop"
+
+mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\meshes\setdressing\terminals"
+mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\materials\setdressing\terminals\splashscreens"
+mkdir "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\textures\setdressing\terminals\splashscreens"
 
 @REM Compile and deploy Scripts to Dist-BA2-Main folder
 @echo "Compiling all script in Source/Papyrus to Dist-BA2-Main folder"
@@ -45,17 +45,13 @@ copy /y "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawn
 "D:\Program Files\Spriggit\Spriggit.CLI.exe" serialize --InputPath "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" --OutputPath "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\ESM-Extracted" --GameRelease Starfield --PackageName Spriggit.Yaml
 
 @echo "Deploying textures to Dist-BA2-Textures"
-copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Textures\crimsonfleet_splashscreen_color.dds" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\textures\setdressing\terminals\splashscreens"
+copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Meshes\pawn_shop_terminal.nif" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\meshes\Venworks\PawnShop"
+copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Materials\pawn_shop_splashscreen.mat" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\materials\Venworks\PawnShop"
+copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Textures\pawn_shop_splashscreen_color.dds" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\textures\Venworks\PawnShop"
 
-@REM Create and copy the BA2 Textures Archive to Dist folder
-@echo "Creating the BA2 Textures Archive"
-"D:\Program Files\xEdit\BSArch64.exe" pack "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures" "GalacticPawnShop - Textures.ba2" -sf1dds -mt && (
-  @echo "Textures Archive successfully assembled"
-  (call )
-) || (
-  @echo "ERROR:  Textures Archive failed to assemble <======================================="
-  exit /b 1
-)
+copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Meshes\pawn_shop_terminal.nif" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\meshes\setdressing\terminals"
+copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Materials\pawn_shop_splashscreen.mat" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\materials\setdressing\terminals\splashscreens"
+copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Textures\pawn_shop_splashscreen_color.dds" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\Textures\SetDressing\terminals\SplashScreens"
 
 @REM Create and copy the BA2 Main Archive to Dist folder
 @echo "Creating the BA2 Main Archive"
@@ -69,5 +65,4 @@ copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Sour
 
 @REM Copying the BA2 Archives to the Dist folder
 @echo "Copying the BA2 Archives to the Dist folder"
-copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Textures\GalacticPawnShop - Textures.ba2" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"
 copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\GalacticPawnShop - Main.ba2" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"

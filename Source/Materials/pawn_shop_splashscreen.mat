@@ -4,29 +4,160 @@
       "Components": [
         {
           "Data": {
-            "upControllers": {
+            "Name": "SplashScreen_PawnShop"
+          },
+          "Index": 0,
+          "Type": "BSComponentDB::CTName"
+        },
+        {
+          "Data": {
+            "ID": "res:A3298159:0005CFD5:A55B6F77"
+          },
+          "Index": 0,
+          "Type": "BSMaterial::LayerID"
+        },
+        {
+          "Data": {
+            "ID": "res:6CA69F83:3D180D3B:0074616D"
+          },
+          "Index": 1,
+          "Type": "BSMaterial::LODMaterialID"
+        },
+        {
+          "Data": {
+            "ID": "res:6CA69F83:3D180D3B:0074616D"
+          },
+          "Index": 2,
+          "Type": "BSMaterial::LODMaterialID"
+        },
+        {
+          "Data": {
+            "AlphaTestThreshold": "0.005000",
+            "Blender": {
               "Data": {
-                "Data": {
-                  "MappingsA": {
-                    "Data": [],
-                    "Type": "<collection>"
-                  },
-                  "UseRandomOffset": false
-                },
-                "Type": "BSBind::Controllers"
+                "UseVertexColor": "true",
+                "VertexColorChannel": "Alpha"
               },
-              "Type": "<ref>"
+              "Type": "BSMaterial::AlphaBlenderSettings"
+            },
+            "HasOpacity": "true"
+          },
+          "Index": 0,
+          "Type": "BSMaterial::AlphaSettingsComponent"
+        },
+        {
+          "Data": {
+            "IsDecal": "true",
+            "WriteMask": "15728647"
+          },
+          "Index": 0,
+          "Type": "BSMaterial::DecalSettingsComponent"
+        },
+        {
+          "Data": {
+            "Enabled": "true",
+            "Settings": {
+              "Data": {
+                "AdaptiveEmittance": "true",
+                "ExposureOffset": "6.000000",
+                "LuminousEmittance": "150.000000"
+              },
+              "Type": "BSMaterial::EmittanceSettings"
             }
           },
-          "Type": "BSBind::ControllerComponent",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSMaterial::EmissiveSettingsComponent"
+        },
+        {
+          "Data": {
+            "FileName": "1LayerStandardDecalEmissive"
+          },
+          "Index": 0,
+          "Type": "BSMaterial::ShaderModelComponent"
+        },
+        {
+          "Data": {
+            "AdaptiveEmittance": "false",
+            "EmissiveClipThreshold": "0.000000",
+            "EnableAdaptiveLimits": "false",
+            "Enabled": "false",
+            "ExposureOffset": "0.000000",
+            "FirstBlenderIndex": "BLEND_LAYER_8",
+            "FirstBlenderMode": "Lerp",
+            "FirstLayerIndex": "MATERIAL_LAYER_9",
+            "FirstLayerMaskIndex": "None",
+            "FirstLayerTint": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "1.000000",
+                    "y": "1.000000",
+                    "z": "1.000000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            },
+            "LuminousEmittance": "432.000000",
+            "MaxOffsetEmittance": "1.000000",
+            "MinOffsetEmittance": "0.000000",
+            "SecondBlenderIndex": "BLEND_LAYER_7",
+            "SecondBlenderMode": "Lerp",
+            "SecondLayerActive": "false",
+            "SecondLayerIndex": "MATERIAL_LAYER_8",
+            "SecondLayerMaskIndex": "None",
+            "SecondLayerTint": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "1.000000",
+                    "y": "1.000000",
+                    "z": "1.000000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            },
+            "ThirdLayerActive": "false",
+            "ThirdLayerIndex": "MATERIAL_LAYER_7",
+            "ThirdLayerMaskIndex": "None",
+            "ThirdLayerTint": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "1.000000",
+                    "y": "1.000000",
+                    "z": "1.000000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            }
+          },
+          "Index": 0,
+          "Type": "BSMaterial::LayeredEmissivityComponent"
+        },
+        {
+          "Data": {
+            "LowLODRootMaterial": "",
+            "MediumLODRootMaterial": "Data/Materials/Layered/ShaderModels/Invisible.mat",
+            "NumLODMaterials": "2",
+            "VeryLowLODRootMaterial": ""
+          },
+          "Index": 0,
+          "Type": "BSMaterial::LevelOfDetailSettings"
         },
         {
           "Data": {
             "upDir": {
               "Data": {
                 "Data": {
-                  "Name": "",
                   "Children": {
                     "Data": [
                       {
@@ -35,9 +166,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "EmissiveIntensity",
                                 "Binding": "EmissiveIntensity",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "EmissiveIntensity"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -52,9 +183,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "EmissiveColor",
                                 "Binding": "EmissiveColor",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "EmissiveColor"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -69,9 +200,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "LayerTint",
                                 "Binding": "LayerTint",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "LayerTint"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -86,9 +217,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "FirstLayerEmissiveColor",
                                 "Binding": "EmissiveColor",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "FirstLayerEmissiveColor"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -103,9 +234,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "UVOffset",
                                 "Binding": "UVOffset",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "UVOffset"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -120,9 +251,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "OverallOpacity",
                                 "Binding": "OverallOpacity",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "OverallOpacity"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -137,9 +268,9 @@
                           "Value": {
                             "Data": {
                               "Data": {
-                                "Name": "UVScale",
                                 "Binding": "UVScale",
-                                "LayerIndex": 0
+                                "LayerIndex": "0",
+                                "Name": "UVScale"
                               },
                               "Type": "BSMaterialBinding::MaterialPropertyNode"
                             },
@@ -152,6 +283,7 @@
                     "ElementType": "StdMapType::Pair",
                     "Type": "<collection>"
                   },
+                  "Name": "",
                   "SourceDirectoryHash": "0"
                 },
                 "Type": "BSBind::Directory"
@@ -159,163 +291,16 @@
               "Type": "<ref>"
             }
           },
-          "Type": "BSBind::DirectoryComponent",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSBind::DirectoryComponent"
         },
         {
-          "Data": {
-            "Name": "SplashScreen_PawnShop"
-          },
-          "Type": "BSComponentDB::CTName",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "HasOpacity": true,
-            "AlphaTestThreshold": 0.005,
-            "Blender": {
-              "Data": {
-                "UseVertexColor": true,
-                "VertexColorChannel": "Alpha"
-              },
-              "Type": "BSMaterial::AlphaBlenderSettings"
-            }
-          },
-          "Type": "BSMaterial::AlphaSettingsComponent",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "IsDecal": true,
-            "WriteMask": 15728647
-          },
-          "Type": "BSMaterial::DecalSettingsComponent",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "Enabled": true,
-            "Settings": {
-              "Data": {
-                "AdaptiveEmittance": true,
-                "LuminousEmittance": 150,
-                "ExposureOffset": 6
-              },
-              "Type": "BSMaterial::EmittanceSettings"
-            }
-          },
-          "Type": "BSMaterial::EmissiveSettingsComponent",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "ID": "res:6CA69F83:3D180D3B:0074616D"
-          },
-          "Type": "BSMaterial::LODMaterialID",
-          "Index": 1
-        },
-        {
-          "Data": {
-            "ID": "res:6CA69F83:3D180D3B:0074616D"
-          },
-          "Type": "BSMaterial::LODMaterialID",
-          "Index": 2
-        },
-        {
-          "Data": {
-            "ID": "res:A3298159:0005CFD5:A55B6F77"
-          },
-          "Type": "BSMaterial::LayerID",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "Enabled": false,
-            "FirstLayerIndex": "MATERIAL_LAYER_9",
-            "FirstLayerTint": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            },
-            "FirstLayerMaskIndex": "None",
-            "SecondLayerActive": false,
-            "SecondLayerIndex": "MATERIAL_LAYER_8",
-            "SecondLayerTint": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            },
-            "SecondLayerMaskIndex": "None",
-            "FirstBlenderIndex": "BLEND_LAYER_8",
-            "FirstBlenderMode": "Lerp",
-            "ThirdLayerActive": false,
-            "ThirdLayerIndex": "MATERIAL_LAYER_7",
-            "ThirdLayerTint": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            },
-            "ThirdLayerMaskIndex": "None",
-            "SecondBlenderIndex": "BLEND_LAYER_7",
-            "SecondBlenderMode": "Lerp",
-            "EmissiveClipThreshold": 0,
-            "AdaptiveEmittance": false,
-            "LuminousEmittance": 432,
-            "ExposureOffset": 0,
-            "EnableAdaptiveLimits": false,
-            "MaxOffsetEmittance": 1,
-            "MinOffsetEmittance": 0
-          },
-          "Type": "BSMaterial::LayeredEmissivityComponent",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "NumLODMaterials": 2,
-            "MediumLODRootMaterial": "Data/Materials/Layered/ShaderModels/Invisible.mat",
-            "LowLODRootMaterial": "",
-            "VeryLowLODRootMaterial": ""
-          },
-          "Type": "BSMaterial::LevelOfDetailSettings",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "FileName": "1LayerStandardDecalEmissive"
-          },
-          "Type": "BSMaterial::ShaderModelComponent",
-          "Index": 0
+          "Data": {},
+          "Index": 0,
+          "Type": "BSBind::ControllerComponent"
         }
       ],
-      "ID": "res:6CA69F83:3D180D3B:0074616D",
-      "Parent": "materials\\layered\\root\\layeredmaterials.mat"
+      "Parent": "Materials\\Effects\\Emissives\\GenericGlow01_Base.mat"
     },
     {
       "Components": [
@@ -323,22 +308,22 @@
           "Data": {
             "Name": "SplashScreen_PawnShop_Layer1"
           },
-          "Type": "BSComponentDB::CTName",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSComponentDB::CTName"
         },
         {
           "Data": {
             "ID": "res:A3298184:0005CFD5:A55B6F77"
           },
-          "Type": "BSMaterial::MaterialID",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSMaterial::MaterialID"
         },
         {
           "Data": {
             "ID": "res:A329820F:0005CFD5:A55B6F77"
           },
-          "Type": "BSMaterial::UVStreamID",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSMaterial::UVStreamID"
         }
       ],
       "ID": "res:A3298159:0005CFD5:A55B6F77",
@@ -348,52 +333,10 @@
       "Components": [
         {
           "Data": {
-            "Name": "SplashScreen_PawnShop_Material1"
-          },
-          "Type": "BSComponentDB::CTName",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "Value": {
-              "Data": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-              },
-              "Type": "XMFLOAT4"
-            }
-          },
-          "Type": "BSMaterial::Color",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "Value": "Multiply"
-          },
-          "Type": "BSMaterial::MaterialOverrideColorTypeComponent",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "ID": "res:A32981BE:0005CFD5:A55B6F77"
-          },
-          "Type": "BSMaterial::TextureSetID",
-          "Index": 0
-        }
-      ],
-      "ID": "res:A3298184:0005CFD5:A55B6F77",
-      "Parent": "materials\\layered\\root\\materials.mat"
-    },
-    {
-      "Components": [
-        {
-          "Data": {
             "Name": "SplashScreen_PawnShop_UVStreamA"
           },
-          "Type": "BSComponentDB::CTName",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSComponentDB::CTName"
         }
       ],
       "ID": "res:A329820F:0005CFD5:A55B6F77",
@@ -403,127 +346,169 @@
       "Components": [
         {
           "Data": {
+            "Name": "SplashScreen_PawnShop_Material1"
+          },
+          "Index": 0,
+          "Type": "BSComponentDB::CTName"
+        },
+        {
+          "Data": {
+            "ID": "res:A32981BE:0005CFD5:A55B6F77"
+          },
+          "Index": 0,
+          "Type": "BSMaterial::TextureSetID"
+        },
+        {
+          "Data": {
+            "Value": "Multiply"
+          },
+          "Index": 0,
+          "Type": "BSMaterial::MaterialOverrideColorTypeComponent"
+        },
+        {
+          "Data": {
+            "Value": {
+              "Data": {
+                "w": "0.000000",
+                "x": "0.000000",
+                "y": "0.000000",
+                "z": "0.000000"
+              },
+              "Type": "XMFLOAT4"
+            }
+          },
+          "Index": 0,
+          "Type": "BSMaterial::Color"
+        }
+      ],
+      "ID": "res:A3298184:0005CFD5:A55B6F77",
+      "Parent": "materials\\layered\\root\\materials.mat"
+    },
+    {
+      "Components": [
+        {
+          "Data": {
             "Name": "SplashScreen_PawnShop_TextureSet1"
           },
-          "Type": "BSComponentDB::CTName",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSComponentDB::CTName"
+        },
+        {
+          "Data": {
+            "Color": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "1.000000",
+                    "y": "1.000000",
+                    "z": "1.000000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            },
+            "Enabled": "false"
+          },
+          "Index": 7,
+          "Type": "BSMaterial::TextureReplacement"
+        },
+        {
+          "Data": {
+            "Color": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "1.000000",
+                    "y": "1.000000",
+                    "z": "1.000000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            }
+          },
+          "Index": 0,
+          "Type": "BSMaterial::TextureReplacement"
+        },
+        {
+          "Data": {
+            "Color": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "0.500000",
+                    "y": "0.500000",
+                    "z": "0.500000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            }
+          },
+          "Index": 3,
+          "Type": "BSMaterial::TextureReplacement"
+        },
+        {
+          "Data": {
+            "Color": {
+              "Data": {
+                "Value": {
+                  "Data": {
+                    "w": "1.000000",
+                    "x": "0.500000",
+                    "y": "0.500000",
+                    "z": "0.500000"
+                  },
+                  "Type": "XMFLOAT4"
+                }
+              },
+              "Type": "BSMaterial::Color"
+            },
+            "Enabled": "true"
+          },
+          "Index": 4,
+          "Type": "BSMaterial::TextureReplacement"
         },
         {
           "Data": {
             "FileName": "Data\\Textures\\Venworks\\PawnShop\\pawn_shop_splashscreen_color.dds"
           },
-          "Type": "BSMaterial::MRTextureFile",
-          "Index": 0
+          "Index": 0,
+          "Type": "BSMaterial::MRTextureFile"
         },
         {
           "Data": {
             "FileName": "Data\\Textures\\Common\\Paint\\Paint01_normal.DDS"
           },
-          "Type": "BSMaterial::MRTextureFile",
-          "Index": 1
+          "Index": 1,
+          "Type": "BSMaterial::MRTextureFile"
         },
         {
           "Data": {
             "FileName": "Data\\Textures\\Common\\Grunge\\GrungeGlassShipWindow_rough.DDS"
           },
-          "Type": "BSMaterial::MRTextureFile",
-          "Index": 3
+          "Index": 3,
+          "Type": "BSMaterial::MRTextureFile"
         },
         {
           "Data": {
             "FileName": "Data\\Textures\\Venworks\\PawnShop\\pawn_shop_splashscreen_color.dds"
           },
-          "Type": "BSMaterial::MRTextureFile",
-          "Index": 7
+          "Index": 7,
+          "Type": "BSMaterial::MRTextureFile"
         },
         {
           "Data": {
             "FileName": ""
           },
-          "Type": "BSMaterial::MRTextureFile",
-          "Index": 9
-        },
-        {
-          "Data": {
-            "Color": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            }
-          },
-          "Type": "BSMaterial::TextureReplacement",
-          "Index": 0
-        },
-        {
-          "Data": {
-            "Color": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "z": 0.5,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            }
-          },
-          "Type": "BSMaterial::TextureReplacement",
-          "Index": 3
-        },
-        {
-          "Data": {
-            "Enabled": true,
-            "Color": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 0.5,
-                    "y": 0.5,
-                    "z": 0.5,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            }
-          },
-          "Type": "BSMaterial::TextureReplacement",
-          "Index": 4
-        },
-        {
-          "Data": {
-            "Enabled": false,
-            "Color": {
-              "Data": {
-                "Value": {
-                  "Data": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1,
-                    "w": 1
-                  },
-                  "Type": "XMFLOAT4"
-                }
-              },
-              "Type": "BSMaterial::Color"
-            }
-          },
-          "Type": "BSMaterial::TextureReplacement",
-          "Index": 7
+          "Index": 9,
+          "Type": "BSMaterial::MRTextureFile"
         }
       ],
       "ID": "res:A32981BE:0005CFD5:A55B6F77",

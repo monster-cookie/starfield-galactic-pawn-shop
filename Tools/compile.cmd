@@ -38,7 +38,7 @@ copy /y "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawn
 copy /y "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist"
 
 @REM Use Spriggit to extract record from ESM
-"D:\Program Files\Spriggit\Spriggit.CLI.exe" serialize --InputPath "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" --OutputPath "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\ESM-Extracted" --GameRelease Starfield --PackageName Spriggit.Yaml
+"D:\Program Files\Spriggit\Spriggit.CLI.exe" serialize --InputPath "D:\MO2Staging\Starfield\mods\GalacticPawnShop-Experimental\GalacticPawnShop.esm" --OutputPath "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\ESM-GalacticPawnShop-Extracted" --GameRelease Starfield --PackageName Spriggit.Yaml
 
 @echo "Deploying textures to Dist-BA2-Textures"
 copy /y "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Source\Meshes\pawn_shop_terminal.nif" "C:\Repositories\Public\Starfield Mods\starfield-galactic-pawn-shop\Dist-BA2-Main\meshes\Venworks\PawnShop"

@@ -1,5 +1,8 @@
 # Galactic Pawn Shop
 
+## V1.0.12
+* Fix problems when made part of an interior cell
+
 ## V1.0.11
 * Now with our own custom terminal instead of messing with the crimson fleet mission board. You may have to remove and readd the terminal to get it working again but shouldn't for a pure model change. 
 

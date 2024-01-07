@@ -33,6 +33,7 @@ ObjectReference myVendorContainer
 
 Event OnInit()
   ; VPI_Debug.DebugMessage(Venpi_ModName, "VendorActivatorScript", "OnInit", "OnInit Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
+  self.OnLoad()
 EndEvent
 
 Event OnLoad()
@@ -50,6 +51,7 @@ Event OnLoad()
 EndEvent
 
 Event OnActivate(ObjectReference akActionRef)
+  self.OnLoad()
   If (akActionRef == Game.GetPlayer() as ObjectReference)
     myVendor.ShowBarterMenu()
   EndIf

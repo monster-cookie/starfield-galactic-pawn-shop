@@ -7,8 +7,8 @@ Import Venworks:Shared:Logging
 ;;;
 ;;; Global Variables
 ;;;
-GlobalVariable Property Venpi_DebugEnabled Auto Const Mandatory
-String Property Venpi_ModName Auto Const Mandatory
+GlobalVariable Property DebugEnabled Auto Const Mandatory
+String Property ModName="VenworksPawnshop" Auto Const
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -34,12 +34,12 @@ ObjectReference myVendorContainer
 ;;;
 
 Event OnInit()
-  ; Log(Venpi_ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnInit", "OnInit Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
+  ; Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnInit", "OnInit Triggered.", 0, DebugEnabled.GetValueInt())
   self.OnLoad()
 EndEvent
 
 Event OnLoad()
-  Log(Venpi_ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnLoad", "OnLoad Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
+  Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnLoad", "OnLoad Triggered.", 0, DebugEnabled.GetValueInt())
   If (myVendor == None)
     myVendor = Self.PlaceActorAtMe(Vendor, 4, None, False, True, True, None, True)
     myVendorContainer = Self.PlaceAtMe(VendorContainer as Form, 1, False, True, True, None, None, True)
@@ -47,7 +47,7 @@ Event OnLoad()
   EndIf
 
   If (ClearVendorActorInventoryOnLoad)
-    Log(Venpi_ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnLoad", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, Venpi_DebugEnabled.GetValueInt())
+    Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnLoad", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, DebugEnabled.GetValueInt())
     myVendor.RemoveAllItems(None, False, False)
   EndIf
 EndEvent
@@ -60,9 +60,9 @@ Event OnActivate(ObjectReference akActionRef)
 EndEvent
 
 Event OnCellDetach()
-  ; Log(Venpi_ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnCellDetach", "OnCellDetach Triggered.", 0, Venpi_DebugEnabled.GetValueInt())
+  ; Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnCellDetach", "OnCellDetach Triggered.", 0, DebugEnabled.GetValueInt())
   If (ClearVendorActorInventoryOnLoad)
-    Log(Venpi_ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnCellDetach", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, Venpi_DebugEnabled.GetValueInt())
+    Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnCellDetach", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, DebugEnabled.GetValueInt())
     myVendor.RemoveAllItems(None, False, False)
   EndIf
 EndEvent

@@ -34,7 +34,7 @@ foreach ($database in $Global:Databases) {
   }
 }
 
-# Need to copy in terrain files
+# Need to copy in terrain files (The engines uses file name matching on editor ID so our files have to go in the same folder as BGS's files)
 if ([System.IO.Directory]::Exists(".\Source\Terrain")) {
   if (![System.IO.Directory]::Exists("$ENV:MODULE_TERRAIN_PATH")) {
     New-Item -ItemType "Directory" -Path "$ENV:MODULE_TERRAIN_PATH" | Out-Null
@@ -46,7 +46,7 @@ if ([System.IO.Directory]::Exists(".\Source\Terrain")) {
   }
 }
 
-# Need to copy in terrain meshes
+# Need to copy in terrain meshes (The engines uses file name matching on editor ID so our files have to go in the same folder as BGS's files)
 if ([System.IO.Directory]::Exists(".\Source\TerrainMeshes")) {
   Write-Host -ForegroundColor Green "Copying Terrain meshes to the Game Data folder."
   if (![System.IO.Directory]::Exists("$ENV:MODULE_TERRAIN_MESHES_PATH")) {
@@ -64,7 +64,7 @@ if ([System.IO.Directory]::Exists(".\Source\TerrainMeshes")) {
   }
 }
 
-# Need to copy in LOD files
+# Need to copy in LOD files (The engines uses file name matching on editor ID so our files have to go in the same folder as BGS's files)
 if ([System.IO.Directory]::Exists(".\Source\LODSettings")) {
   if (![System.IO.Directory]::Exists("$ENV:MODULE_LOD_PATH")) {
     New-Item -ItemType "Directory" -Path "$ENV:MODULE_LOD_PATH" | Out-Null
@@ -76,13 +76,31 @@ if ([System.IO.Directory]::Exists(".\Source\LODSettings")) {
   }
 }
 
-# Need to copy in Meshes
+# Need to copy in Meshes (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
 if ([System.IO.Directory]::Exists(".\Source\Meshes")) {
   if (![System.IO.Directory]::Exists("$ENV:MODULE_MESHES_PATH")) {
-    New-Item -ItemType "Directory" -Path "$ENV:MODULE_MESHES_PATH\$Global:ScriptingNamespaceCompany" | Out-Null
+    New-Item -ItemType "Directory" -Path "$ENV:MODULE_MESHES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule" | Out-Null
   }
   Write-Host -ForegroundColor Green "Copying Meshes to the Game Data folder."
-  Copy-Item -Force -Path ".\Source\Meshes\$Global:ScriptingNamespaceCompany\*.nif" -Destination "$ENV:MODULE_MESHES_PATH\$Global:ScriptingNamespaceCompany"
+  Copy-Item -Force -Path ".\Source\Meshes\*.nif" -Destination "$ENV:MODULE_MESHES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule"
+}
+
+# Need to copy in Material definitions (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
+if ([System.IO.Directory]::Exists(".\Source\Materials")) {
+  if (![System.IO.Directory]::Exists("$ENV:MODULE_MATERIALS_PATH")) {
+    New-Item -ItemType "Directory" -Path "$ENV:MODULE_MATERIALS_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule" | Out-Null
+  }
+  Write-Host -ForegroundColor Green "Copying Material Definitions to the Game Data folder."
+  Copy-Item -Force -Path ".\Source\Materials\*.mat" -Destination "$ENV:MODULE_MATERIALS_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule"
+}
+
+# Need to copy in Textures (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
+if ([System.IO.Directory]::Exists(".\Source\Textures")) {
+  if (![System.IO.Directory]::Exists("$ENV:MODULE_TEXTURES_PATH")) {
+    New-Item -ItemType "Directory" -Path "$ENV:MODULE_TEXTURES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule" | Out-Null
+  }
+  Write-Host -ForegroundColor Green "Copying Textures to the Game Data folder."
+  Copy-Item -Force -Path ".\Source\Textures\*.dds" -Destination "$ENV:MODULE_TEXTURES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule"
 }
 
 Write-Host -ForegroundColor Cyan "`n`n"

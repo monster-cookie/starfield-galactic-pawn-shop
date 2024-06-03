@@ -27,6 +27,8 @@
   - MODULE_TERRAIN_MESHES_PATH is the path for the terrain LOD meshes 
   - MODULE_LOD_PATH is the path for the terrain LOD settings file
   - MODULE_MESHES_PATH is the path for custom meshes
+  - MODULE_MATERIALS_PATH is the path for custom material definitions
+  - MODULE_TEXTURES_PATH is the path for custom textures
 
 #### Example
 
@@ -50,6 +52,8 @@ MODULE_TERRAIN_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Terra
 MODULE_TERRAIN_MESHES_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Meshes\Terrain
 MODULE_LOD_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\LODSettings
 MODULE_MESHES_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Meshes
+MODULE_MATERIALS_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Materials
+MODULE_TEXTURES_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Textures
 ```
 
 ## Workflows

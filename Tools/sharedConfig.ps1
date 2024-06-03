@@ -25,7 +25,7 @@ Write-Host -ForegroundColor Yellow "Module Scripting Folder is $ENV:MODULE_SCRIP
 Write-Host -ForegroundColor Yellow "Module Scripting Source Folder is $ENV:MODULE_SCRIPTS_SOURCE_PATH"
 
 $Global:Databases = @(
-  ("Venworks-JunkRecycler.esp")
+  ("Venworks-Pawnshop.esp")
 )
 
 $Global:WorldSpaces = @(
@@ -33,7 +33,7 @@ $Global:WorldSpaces = @(
 )
 
 $Global:ScriptingNamespaceCompany = "Venworks"
-$Global:ScriptingNamespaceModule = "JunkRecycler"
+$Global:ScriptingNamespaceModule = "Pawnshop"
 $Global:ScriptingNamespaceSharedLibrary = "Shared"
 
 Write-Host -ForegroundColor Yellow "Papyrus Scripting namespace for module is $Global:SCriptingNamespaceCompany`:$Global:ScriptingNamespaceModule"

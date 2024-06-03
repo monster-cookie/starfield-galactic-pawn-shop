@@ -70,7 +70,7 @@ if ([System.IO.Directory]::Exists(".\Source\Materials") -and [System.IO.Director
 # Need to copy in Textures (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
 if ([System.IO.Directory]::Exists(".\Source\Textures") -and [System.IO.Directory]::Exists("$ENV:MODULE_TEXTURES_PATH")) {
   Write-Host -ForegroundColor Green "Copying Textures from the Game Data folder."
-  Copy-Item -Force -Path "$ENV:MODULE_TEXTURES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule\*.nif" -Destination ".\Source\Textures\"
+  Copy-Item -Force -Path "$ENV:MODULE_TEXTURES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule\*.dds" -Destination ".\Source\Textures\"
 }
 
 Write-Host -ForegroundColor Cyan "`n`n"

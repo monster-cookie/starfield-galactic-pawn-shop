@@ -17,8 +17,8 @@ If ([System.IO.Directory]::Exists("$ENV:MODULE_SCRIPTS_PATH\$Global:ScriptingNam
   Write-Host -ForegroundColor Red "WARNING: No scripting support detected so no scripts to sync."
 }
 
-# Need to copy the ESM/ESP/ESL files from the Game Data folder to update the repository verison for commit
-Write-Host -ForegroundColor Green "Copying the ESM/ESP/ESL files from the Game Data folder to update the repository verison for commit"
+# Need to copy the ESM/ESP/ESL files from the MO2 folder to update the repository verison for commit
+Write-Host -ForegroundColor Green "Copying the ESM/ESP/ESL files from the MO2 folder to update the repository verison for commit"
 foreach ($database in $Global:Databases) {
   if (![System.IO.File]::Exists("$ENV:MODULE_DATABASE_PATH\$database")) {
     Write-Host -ForegroundColor DarkRed "No database file named '$database' found in $ENV:MODULE_DATABASE_PATH. Skipping."
@@ -30,7 +30,7 @@ foreach ($database in $Global:Databases) {
 
 # Need to copy out terrain files (The engines uses file name matching on editor ID so our files have to go in the same folder as BGS's files)
 if ([System.IO.Directory]::Exists(".\Source\Terrain") -and [System.IO.Directory]::Exists("$ENV:MODULE_TERRAIN_PATH")) {
-  Write-Host -ForegroundColor Green "Copying Terrain files from the Game Data folder."
+  Write-Host -ForegroundColor Green "Copying Terrain files from the MO2 folder."
   foreach ($worldspace in $Global:WorldSpaces) {
     Write-Host -ForegroundColor Green "Copying $ENV:MODULE_TERRAIN_PATH\$worldspace.btd to Source\Terrain."
     Copy-Item -Force -Path "$ENV:MODULE_TERRAIN_PATH\$worldspace.btd" -Destination ".\Source\Terrain"
@@ -39,7 +39,7 @@ if ([System.IO.Directory]::Exists(".\Source\Terrain") -and [System.IO.Directory]
 
 # Need to copy out terrain meshes (The engines uses file name matching on editor ID so our files have to go in the same folder as BGS's files)
 if ([System.IO.Directory]::Exists(".\Source\TerrainMeshes") -and [System.IO.Directory]::Exists("$ENV:MODULE_TERRAIN_MESHES_PATH")) {
-  Write-Host -ForegroundColor Green "Copying Terrain meshes from the Game Data folder."
+  Write-Host -ForegroundColor Green "Copying Terrain meshes from the MO2 folder."
   foreach ($worldspace in $Global:WorldSpaces) {
     Write-Host -ForegroundColor Green "Copying $ENV:MODULE_TERRAIN_MESHES_PATH\$worldspace\Objects\$worldspace*.nif to Source\TerrainMeshes."
     Copy-Item -Force -Path "$ENV:MODULE_TERRAIN_MESHES_PATH\$worldspace\Objects\$worldspace*.nif" -Destination ".\Source\TerrainMeshes"
@@ -48,7 +48,7 @@ if ([System.IO.Directory]::Exists(".\Source\TerrainMeshes") -and [System.IO.Dire
 
 # Need to copy out LOD files (The engines uses file name matching on editor ID so our files have to go in the same folder as BGS's files)
 if ([System.IO.Directory]::Exists(".\Source\LODSettings") -and [System.IO.Directory]::Exists("$ENV:MODULE_LOD_PATH")) {
-  Write-Host -ForegroundColor Green "Copying LOD files from the Game Data folder."
+  Write-Host -ForegroundColor Green "Copying LOD files from the MO2 folder."
   foreach ($worldspace in $Global:WorldSpaces) {
     Write-Host -ForegroundColor Green "Copying $ENV:MODULE_LOD_PATH\$worldspace.lod to Source\LODSettings."
     Copy-Item -Force -Path "$ENV:MODULE_LOD_PATH\$worldspace.lod" -Destination ".\Source\LODSettings"
@@ -57,24 +57,30 @@ if ([System.IO.Directory]::Exists(".\Source\LODSettings") -and [System.IO.Direct
 
 # Need to copy out Meshes (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
 if ([System.IO.Directory]::Exists(".\Source\Meshes") -and [System.IO.Directory]::Exists("$ENV:MODULE_MESHES_PATH")) {
-  Write-Host -ForegroundColor Green "Copying Meshes from the Game Data folder."
+  Write-Host -ForegroundColor Green "Copying Meshes from the MO2 folder."
   Copy-Item -Force -Path "$ENV:MODULE_MESHES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule\*.nif" -Destination ".\Source\Meshes\"
 }
 
 # Need to copy in Material definitions (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
 if ([System.IO.Directory]::Exists(".\Source\Materials") -and [System.IO.Directory]::Exists("$ENV:MODULE_MATERIALS_PATH")) {
-  Write-Host -ForegroundColor Green "Copying Material Definitions from the Game Data folder."
+  Write-Host -ForegroundColor Green "Copying Material Definitions from the MO2 folder."
   Copy-Item -Force -Path "$ENV:MODULE_MATERIALS_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule\*.mat" -Destination ".\Source\Materials\"
 }
 
 # Need to copy in Textures (These are only referenced by editor path so they need to end up a subdir using our company name and module name)
 if ([System.IO.Directory]::Exists(".\Source\Textures") -and [System.IO.Directory]::Exists("$ENV:MODULE_TEXTURES_PATH")) {
-  Write-Host -ForegroundColor Green "Copying Textures from the Game Data folder."
+  Write-Host -ForegroundColor Green "Copying Textures from the MO2 folder."
   Copy-Item -Force -Path "$ENV:MODULE_TEXTURES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule\*.dds" -Destination ".\Source\Textures\"
 }
 
+# Need to copy in Batch Files (This cannot have subdirectories)
+if ([System.IO.Directory]::Exists(".\Source\BatchFiles") -and [System.IO.Directory]::Exists("$ENV:MODULE_BATCH_FILES_PATH")) {
+  Write-Host -ForegroundColor Green "Copying Batch Files from the MO2 folder."
+  Copy-Item -Force -Path "$ENV:MODULE_BATCH_FILES_PATH\$Global:ScriptingNamespaceCompany`_*.txt" -Destination ".\Source\BatchFiles"
+}
+
 Write-Host -ForegroundColor Cyan "`n`n"
-Write-Host -ForegroundColor Cyan "**************************************************"
-Write-Host -ForegroundColor Cyan "**  Update Repository Files Workflow complete   **"
-Write-Host -ForegroundColor Cyan "**************************************************"
+Write-Host -ForegroundColor Cyan "***********************************************************"
+Write-Host -ForegroundColor Cyan "**  Update Repository Files From MO2 Workflow complete   **"
+Write-Host -ForegroundColor Cyan "***********************************************************"
 Write-Host -ForegroundColor Cyan "`n`n"

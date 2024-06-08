@@ -109,8 +109,17 @@ if ([System.IO.Directory]::Exists(".\Source\Textures")) {
   Copy-Item -Force -Path ".\Source\Textures\*.dds" -Destination "$ENV:MODULE_TEXTURES_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule"
 }
 
+# Need to copy in Batch Files (This cannot have subdirectories)
+if ([System.IO.Directory]::Exists(".\Source\BatchFiles")) {
+  if (![System.IO.Directory]::Exists("$ENV:MODULE_BATCH_FILES_PATH")) {
+    New-Item -ItemType "Directory" -Path "$ENV:MODULE_BATCH_FILES_PATH" | Out-Null
+  }
+  Write-Host -ForegroundColor Green "Copying BatchFiles to the Game Data folder."
+  Copy-Item -Force -Path ".\Source\BatchFiles\*.txt" -Destination "$ENV:MODULE_BATCH_FILES_PATH"
+}
+
 Write-Host -ForegroundColor Cyan "`n`n"
-Write-Host -ForegroundColor Cyan "**************************************************"
-Write-Host -ForegroundColor Cyan "**    Update SFCK Files Workflow complete       **"
-Write-Host -ForegroundColor Cyan "**************************************************"
+Write-Host -ForegroundColor Cyan "************************************************"
+Write-Host -ForegroundColor Cyan "**    Update CK Files Workflow complete       **"
+Write-Host -ForegroundColor Cyan "************************************************"
 Write-Host -ForegroundColor Cyan "`n`n"

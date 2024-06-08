@@ -29,6 +29,7 @@
   - MODULE_MESHES_PATH is the path for custom meshes
   - MODULE_MATERIALS_PATH is the path for custom material definitions
   - MODULE_TEXTURES_PATH is the path for custom textures
+  - MODULE_BATCH_FILES_PATH is the path for custom console batch files
 
 #### Example
 
@@ -54,6 +55,7 @@ MODULE_LOD_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\LODSettin
 MODULE_MESHES_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Meshes
 MODULE_MATERIALS_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Materials
 MODULE_TEXTURES_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\Textures
+MODULE_BATCH_FILES_PATH=D:\MO2Staging\Starfield_Steam\mods\QOG-MCS-Development\BatchFiles
 ```
 
 ## Workflows

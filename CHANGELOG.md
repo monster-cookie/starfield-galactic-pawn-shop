@@ -1,6 +1,5 @@
 # Venworks Galactic Pawn Shop
 
-## Version 2.0.0 [EXPERIMENTAL]
-* Remove RTFP support
+## Version 3.0.0
+* Remove RTFP and Venpi Core support (Not supported on xbox)
 * Convert to Starfield CK for xbox support
-

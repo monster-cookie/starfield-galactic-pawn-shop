@@ -1,5 +1,5 @@
-# Galactic Pawn Shop
+# Venworks Galactic Pawn Shop
 
-## V1.0.13
-* Compatibility with Starfield 1.11.36
-* Ran Starfield .nif Mesh Path Migration Tool for SF 1.11.36 (https://www.nexusmods.com/starfield/mods/9234)
+## Version 3.0.0
+* Remove RTFP and Venpi Core support (Not supported on xbox)
+* Convert to Starfield CK for xbox support

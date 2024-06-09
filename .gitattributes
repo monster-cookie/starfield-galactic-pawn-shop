@@ -1,0 +1,9 @@
+# File types
+* text=auto
+*.psc	text eol=crlf
+#
+# Lockable Large Binary Types
+*.esm lockable
+*.esp lockable
+*.esl lockable
+*.nif lockable

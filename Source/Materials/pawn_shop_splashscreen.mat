@@ -477,7 +477,7 @@
         },
         {
           "Data": {
-            "FileName": "Data\\Textures\\Venworks\\PawnShop\\pawn_shop_splashscreen_color.dds"
+            "FileName": "Data\\Textures\\Venworks\\Pawnshop\\pawn_shop_splashscreen_color.dds"
           },
           "Index": 0,
           "Type": "BSMaterial::MRTextureFile"
@@ -498,7 +498,7 @@
         },
         {
           "Data": {
-            "FileName": "Data\\Textures\\Venworks\\PawnShop\\pawn_shop_splashscreen_color.dds"
+            "FileName": "Data\\Textures\\Venworks\\Pawnshop\\pawn_shop_splashscreen_color.dds"
           },
           "Index": 7,
           "Type": "BSMaterial::MRTextureFile"

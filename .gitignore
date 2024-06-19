@@ -1,4 +1,8 @@
 ﻿#######################################
+## Papyrus Exclusions
+*.pex
+
+#######################################
 ## Visual Studio Exclusions
 
 # User-specific files
@@ -95,10 +99,23 @@ StyleCopReport.xml
 # Local History for Visual Studio Code
 .history/
 
+
+#######################################
+## Project Exclusions
+
 # User Environment Setup
 .env
 
-# Distrobution Folders
+# Spriggit Key Files
+!spriggit.meta
+
+# Distribution Folders
 Public*
 Dist*
 publish/
+
+# Misc git files from the submodule-shared-code repo
+Source/Papyrus/QOG/Shared/.editorconfig
+Source/Papyrus/QOG/Shared/.gitignore
+Source/Papyrus/QOG/Shared/README.md
+Source/Papyrus/QOG/Shared/submodule-shared-code.code-workspace

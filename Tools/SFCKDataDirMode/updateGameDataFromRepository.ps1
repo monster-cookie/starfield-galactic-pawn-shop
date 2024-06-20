@@ -21,7 +21,7 @@ If ([System.IO.Directory]::Exists("$ENV:MODULE_SCRIPTS_PATH\$Global:ScriptingNam
   Remove-Item -Force -Recurse "$ENV:MODULE_SCRIPTS_PATH\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceSharedLibrary"
 }
 
-& "$PSScriptRoot\..\compileScripts.ps1"
+& "$PSScriptRoot\..\compileScripts.ps1" -compiledScriptPath "$ENV:PAPYRUS_SCRIPTS_PATH"
 
 # Need to copy the ESM/ESP/ESL files to the Game Data folder so SFCK can use them
 Write-Host -ForegroundColor Green "Copying the ESM/ESP/ESL files to the Game Data folder so SFCK can use them"

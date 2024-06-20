@@ -126,6 +126,24 @@
       },
       "group": "none",
       "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "Create Distribution Package",
+      "command": "${workspaceFolder}/Tools/createPackages.ps1",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "group": "none",
+      "problemMatcher": []
     }
   ]
 }

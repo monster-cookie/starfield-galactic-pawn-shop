@@ -17,7 +17,7 @@ Function Log(string modName, string moduleName, string functionName, string logM
     return
   EndIf
 
-  if Debug.OpenUserLog(modName)
+  if (Debug.OpenUserLog(modName))
     Debug.TraceUser(modName, "\n\n[[--------------------------------------------------------------------------------]]\n" + modName + " LOG\n[[--------------------------------------------------------------------------------]]\n\n", 0)
   endif
 

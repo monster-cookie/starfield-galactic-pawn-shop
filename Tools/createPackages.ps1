@@ -80,8 +80,8 @@ if ([System.IO.Directory]::Exists(".\Source\Textures")) {
     $textureName = $item.NameString
     $texturePath = $item.FullName
     Write-Host -ForegroundColor Green "Converting $texturePath to Xbox format and outputting as $textureName to Dist-Archive-Texture-Xbox\Textures folder."
-    & "$ENV:TOOL_PATH_XTEXCONV" -f "BC1_UNORM" -xbox -nologo -o ".\Dist-Archive-Texture-Xbox\Textures\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule" "$texturePath"
-    Rename-Item -Path ".\Dist-Archive-Texture-Xbox\Textures\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule\$textureName" -NewName $textureName.ToLower()
+    # SEE: https://github.com/Microsoft/DirectXTex/wiki/Texconv
+    & "$ENV:TOOL_PATH_XTEXCONV" -f "DXT5" -ft "dds" -l -nologo -o ".\Dist-Archive-Texture-Xbox\Textures\$Global:ScriptingNamespaceCompany\$Global:ScriptingNamespaceModule" "$texturePath"
   }
 }
 
@@ -94,9 +94,9 @@ if ([System.IO.Directory]::Exists(".\Source\BatchFiles")) {
 copyInDatabases -sourcePath ".\Source\Database" -targetPath ".\Dist" -databases $Global:Databases
 
 # TODO: Handle creating the archives and placing then in the mast Dist folder
-& "$ENV:TOOL_PATH_ARCHIVER" ".\Dist-Archive-Main" -create=".\Dist\$Global:ScriptingNamespaceCompany-$Global:ScriptingNamespaceModule - Main.ba2" -format="General" -compression="Default" -maxSizeMB=2048 
-& "$ENV:TOOL_PATH_ARCHIVER" ".\Dist-Archive-Texture-Windows" -create=".\Dist\$Global:ScriptingNamespaceCompany-$Global:ScriptingNamespaceModule - Textures.ba2" -format="DDS" -compression="Default" -maxSizeMB=2048 
-& "$ENV:TOOL_PATH_ARCHIVER" ".\Dist-Archive-Texture-Xbox" -create=".\Dist\$Global:ScriptingNamespaceCompany-$Global:ScriptingNamespaceModule - Textures_xbox.ba2" -format="XBoxDDS" -compression="XBox" -maxSizeMB=2048 
+& "$ENV:TOOL_PATH_ARCHIVER" ".\Dist-Archive-Main" -create=".\Dist\$Global:ScriptingNamespaceCompany-$Global:ScriptingNamespaceModule - Main.ba2" -root="$PWD\Dist-Archive-Main" -format="General" -compression="Default" -maxSizeMB=2048 
+& "$ENV:TOOL_PATH_ARCHIVER" ".\Dist-Archive-Texture-Windows" -create=".\Dist\$Global:ScriptingNamespaceCompany-$Global:ScriptingNamespaceModule - Textures.ba2" -root="$PWD\Dist-Archive-Texture-Windows" -format="DDS" -compression="Default" -maxSizeMB=2048 
+& "$ENV:TOOL_PATH_ARCHIVER" ".\Dist-Archive-Texture-Xbox" -create=".\Dist\$Global:ScriptingNamespaceCompany-$Global:ScriptingNamespaceModule - Textures_XBox.ba2" -root="$PWD\Dist-Archive-Texture-Xbox" -format="XBoxDDS" -compression="XBox" -maxSizeMB=2048 
 
 Write-Host -ForegroundColor Cyan "`n`n"
 Write-Host -ForegroundColor Cyan "**************************************************"

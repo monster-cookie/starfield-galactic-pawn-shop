@@ -18,8 +18,6 @@ ActorBase Property Vendor Auto Const mandatory
 Container Property VendorContainer Auto Const mandatory
 Keyword Property VendorContainerKeyword01 Auto Const mandatory
 Bool Property ClearVendorActorInventoryOnLoad = False Auto Const
-;;Keyword Property SQ_TreasureMap_CreateMapStoryEvent Auto Const mandatory
-;;GlobalVariable Property SQ_TreasureMap_CreateAny Auto Const mandatory
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -27,6 +25,7 @@ Bool Property ClearVendorActorInventoryOnLoad = False Auto Const
 ;;;
 Actor myVendor
 ObjectReference myVendorContainer
+Int iDaysToRespawnVendor
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -36,6 +35,7 @@ ObjectReference myVendorContainer
 Event OnInit()
   ; Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnInit", "OnInit Triggered.", 0, DebugEnabled.GetValueInt())
   self.OnLoad()
+  iDaysToRespawnVendor = Game.GetGameSettingInt(asGameSetting="iDaysToRespawnVendor") 
 EndEvent
 
 Event OnLoad()
@@ -49,6 +49,11 @@ Event OnLoad()
   If (ClearVendorActorInventoryOnLoad)
     Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnLoad", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, DebugEnabled.GetValueInt())
     myVendor.RemoveAllItems(None, False, False)
+  EndIf
+
+  If (GetCurrentShipRef() != None)
+    Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnLoad", "Pawn shop is deployed on a ship so using emulated vendor reset via timer.", 0, DebugEnabled.GetValueInt())
+    StartTimerGameTime(Math.DaysAsHours(iDaysToRespawnVendor), 1)
   EndIf
 EndEvent
 
@@ -65,6 +70,11 @@ Event OnCellDetach()
     Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnCellDetach", "Clearing stock container due to ClearVendorActorInventoryOnLoad being true.", 0, DebugEnabled.GetValueInt())
     myVendor.RemoveAllItems(None, False, False)
   EndIf
+EndEvent
+
+Event OnTimerGameTime(int aiTimerID)
+  Log(ModName, "Venworks:Pawnshop:VendorActivatorScript", "OnTimerGameTime", "OnTimerGameTime Triggered for timer #" + aiTimerID, 0, DebugEnabled.GetValueInt())
+  myVendor.RemoveAllItems(None, False, False)
 EndEvent
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

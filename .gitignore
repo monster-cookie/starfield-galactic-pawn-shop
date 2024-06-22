@@ -99,20 +99,16 @@ StyleCopReport.xml
 # Local History for Visual Studio Code
 .history/
 
-
-#######################################
-## Project Exclusions
-
 # User Environment Setup
 .env
-
-# Spriggit Key Files
-!spriggit.meta
 
 # Distribution Folders
 Public*
 Dist*
 publish/
+
+# MO2 
+Source/meta.ini
 
 # Misc git files from the submodule-shared-code repo
 Source/Papyrus/QOG/Shared/.editorconfig

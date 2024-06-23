@@ -1,0 +1,8 @@
+[
+	"Data\\Meshes\\Venworks\\pawnshop\\pawn_shop_terminal.nif",
+	"Data\\SCRIPTS\\Venworks\\Pawnshop\\VendorActivatorScript.pex",
+	"Data\\SCRIPTS\\Venworks\\Pawnshop\\SQ_VWKS_PS_GameOptionsHandler.pex",
+	"Data\\Scripts\\Venworks\\Shared\\Logging.pex",
+	"Data\\materials\\Venworks\\PawnShop\\pawn_shop_splashscreen.mat",
+	"Data\\Textures\\Venworks\\Pawnshop\\pawn_shop_splashscreen_color.dds"
+]

@@ -17,9 +17,9 @@ Function Log(string modName, string moduleName, string functionName, string logM
     return
   EndIf
 
-  if (Debug.OpenUserLog(modName))
+  If (Debug.OpenUserLog(modName))
     Debug.TraceUser(modName, "\n\n[[--------------------------------------------------------------------------------]]\n" + modName + " LOG\n[[--------------------------------------------------------------------------------]]\n\n", 0)
-  endif
+  EndIf
 
   If (level == 1)
     Debug.TraceUser(modName, "VPI_WARN " + moduleName + "(" + functionName + "): " + logMessage, level)
